@@ -1,0 +1,96 @@
+package com.parcial.model;
+
+import java.util.ArrayList;
+import java.util.List;
+
+public class Race {
+
+    private String name;
+    private String skinColor;
+    private String hairColor;
+    private String transformation;
+    private String originPlanet;
+    private List<Ability> abilities;
+
+    public Race(String hairColor, String originPlanet, String name, String skinColor, String transformation, Ability abilityDefault) {
+        this.hairColor = hairColor;
+        this.originPlanet = originPlanet;
+        this.name = name;
+        this.skinColor = skinColor;
+        this.transformation = transformation;
+        this.abilities = new ArrayList<>();
+        this.abilities.add(abilityDefault);
+    }
+
+    public Race(String hairColor, String originPlanet, String name, String skinColor, String transformation, List<Ability> abilities) {
+        this.hairColor = hairColor;
+        this.originPlanet = originPlanet;
+        this.name = name;
+        this.skinColor = skinColor;
+        this.transformation = transformation;
+        this.abilities = abilities;
+
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public String getSkinColor() {
+        return skinColor;
+    }
+
+    public void setSkinColor(String skinColor) {
+        this.skinColor = skinColor;
+    }
+
+    public String getHairColor() {
+        return hairColor;
+    }
+
+    public void setHairColor(String hairColor) {
+        this.hairColor = hairColor;
+    }
+
+    public String getTransformation() {
+        return transformation;
+    }
+
+    public void setTransformation(String transformation) {
+        this.transformation = transformation;
+    }
+
+    public String getOriginPlanet() {
+        return originPlanet;
+    }
+
+    public void setOriginPlanet(String originPlanet) {
+        this.originPlanet = originPlanet;
+    }
+
+    public List<Ability> getAbilities() {
+        return abilities;
+    }
+
+    public void setAbilities(List<Ability> abilities) {
+        this.abilities = abilities;
+    }
+
+    @Override
+    public String toString() {
+        StringBuilder sb = new StringBuilder();
+        sb.append("Race{");
+        sb.append("race=").append(name);
+        sb.append(", skinColor=").append(skinColor);
+        sb.append(", hairColor=").append(hairColor);
+        sb.append(", transformation=").append(transformation);
+        sb.append(", originPlanet=").append(originPlanet);
+        sb.append(", Abilities=").append(abilities);
+        sb.append('}');
+        return sb.toString();
+    }
+}
