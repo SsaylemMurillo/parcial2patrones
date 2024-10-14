@@ -11,19 +11,30 @@ public class SaiyanFactory implements CharacterFactory {
 
     @Override
     public Race createRace() {
-        return new Race("#000", "Vegeta", "Saiyan", "#FFD6BB", "Base", createAbilities());
+        return new Race("Saiyan", "#FFD6BB", "#000", "Super Saiyan", "Planet Vegeta", createAbilities2());
     }
 
-    @Override
-    public List<Ability> createAbilities() {
+    public List<Ability> createAbilities2() {
         List<Ability> abilities = new ArrayList<>();
-        abilities.add(new Ability("Ozaru", "Offensive", 10000, 3600, "You turn into a huge primate when exposed to the light of the full moon."));
+        abilities.add(new Ability("Zenkai Boost", "Passive", 5000, 0, "Increases power after recovering from near-death experience."));
+        abilities.add(new Ability("Ozaru", "Transformation", 10000, 3600, "Can transform into a great ape at the full moon (or a similar object) to increase their already formidable strength tremendously."));
+
         return abilities;
 
     }
 
     @Override
-    public Technique createTechnique() {
-        return new Technique("Ki Wave", "Ki-based", "You concentrate vital energy (ki) in a point of the body, and then it is released in the form of a powerful ray or sphere of energy that moves quickly towards the target.");
+    public Technique createTechnique(String name, String type, String description) {
+        return new Technique(name, type, description);
+    }
+
+    @Override
+    public List<Ability> createAbilities(List<Ability> abilities) {
+        throw new UnsupportedOperationException("Not supported yet.");
+    }
+
+    @Override
+    public Ability createAbility(Ability ability) {
+        throw new UnsupportedOperationException("Not supported yet.");
     }
 }

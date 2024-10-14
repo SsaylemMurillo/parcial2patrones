@@ -2,14 +2,38 @@ package com.parcial.model;
 
 public class Technique {
 
+    private int id;
     private String name;
     private String style;
     private String description;
+
+    public Technique() {
+
+    }
+
+    public Technique(int id) {
+        this.id = id;
+    }
 
     public Technique(String name, String style, String description) {
         this.name = name;
         this.style = style;
         this.description = description;
+    }
+
+    public Technique(int id, String name, String style, String description) {
+        this.id = id;
+        this.name = name;
+        this.style = style;
+        this.description = description;
+    }
+
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
     }
 
     public String getName() {

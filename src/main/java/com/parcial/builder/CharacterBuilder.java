@@ -9,6 +9,7 @@ import com.parcial.model.Technique;
 
 public class CharacterBuilder implements ICharacterBuilder {
 
+    private int id;
     private String name;
     private Race race;
     private int powerLevel;
@@ -22,6 +23,12 @@ public class CharacterBuilder implements ICharacterBuilder {
         super();
         this.techniques = new ArrayList<>();
         this.techniqueBuilder = techniqueBuilder;
+    }
+
+    @Override
+    public ICharacterBuilder id(int id) {
+        this.id = id;
+        return this;
     }
 
     @Override
@@ -68,7 +75,7 @@ public class CharacterBuilder implements ICharacterBuilder {
 
     @Override
     public Character build() {
-        return new Character(name, race, powerLevel, techniques, age, height, weight);
+        return new Character(id, name, race, powerLevel, techniques, age, height, weight);
     }
 
     @Override
@@ -84,7 +91,8 @@ public class CharacterBuilder implements ICharacterBuilder {
     }
 
     @Override
-    public ICharacterBuilder buildNewTechnique(String name, String style, String description) {
+    public ICharacterBuilder buildNewTechnique(int id, String name, String style, String description) {
+        this.techniqueBuilder.id(id);
         this.techniqueBuilder.name(name);
         this.techniqueBuilder.style(style);
         this.techniqueBuilder.description(description);

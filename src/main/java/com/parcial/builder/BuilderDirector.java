@@ -9,17 +9,16 @@ import com.parcial.model.Technique;
 
 public class BuilderDirector {
 
-    private final CharacterFactory saiyanFactory;
-    private final CharacterFactory namekianFactory;
+    private final CharacterFactory myFactory;
 
-    public BuilderDirector(CharacterFactory saiyanFactory, CharacterFactory namekianFactory) {
-        this.saiyanFactory = saiyanFactory;
-        this.namekianFactory = namekianFactory;
+    public BuilderDirector(CharacterFactory myFactory) {
+        this.myFactory = myFactory;
     }
 
-    private void buildCommonAttributes(ICharacterBuilder builder, CharacterFactory factory, String name, int age, double height, double weight, int powerLevel) {
+    private void buildCommonAttributes(ICharacterBuilder builder, CharacterFactory factory, String name, int age, double height, double weight, int powerLevel, String techniqueName, String techniqueType, String techniqueDescription) {
         List<Technique> techniqueList = new ArrayList<>();
-        techniqueList.add(factory.createTechnique());
+        // Crear técnica con parámetros personalizados
+        techniqueList.add(factory.createTechnique(techniqueName, techniqueType, techniqueDescription));
         builder.techniques(techniqueList)
                 .race(factory.createRace())
                 .name(name)
@@ -30,12 +29,12 @@ public class BuilderDirector {
     }
 
     public Character buildSaiyanCharacter(ICharacterBuilder builder) {
-        buildCommonAttributes(builder, saiyanFactory, "SSAYKO", 30, 120, 80, 3000000);
+        buildCommonAttributes(builder, myFactory, "Unknown", 20, 1.75, 80, 3000000, "Final Flash", "Ki-based", "A powerful blast of concentrated energy fired with both hands.");
         return builder.build();
     }
 
     public Character buildNamekCharacter(ICharacterBuilder builder) {
-        buildCommonAttributes(builder, namekianFactory, "Lele", 20, 240, 30, 100);
+        buildCommonAttributes(builder, myFactory, "Unknown", 20, 2.40, 90, 10000, "Combat Meditation", "Physical Improvement", "Increases concentration and Ki recovery during battle.");
         return builder.build();
     }
 }

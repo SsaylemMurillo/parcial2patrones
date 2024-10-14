@@ -10,7 +10,9 @@ public interface CharacterFactory {
 
     Race createRace();
 
-    List<Ability> createAbilities();
+    Ability createAbility(Ability ability);
 
-    Technique createTechnique();
+    List<Ability> createAbilities(List<Ability> abilities);
+
+    Technique createTechnique(String name, String type, String description);
 }

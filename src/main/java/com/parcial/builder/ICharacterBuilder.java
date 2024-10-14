@@ -8,6 +8,8 @@ import com.parcial.model.Race;
 
 public interface ICharacterBuilder {
 
+    ICharacterBuilder id(int id);
+
     ICharacterBuilder name(String name);
 
     ICharacterBuilder race(Race race);
@@ -16,7 +18,7 @@ public interface ICharacterBuilder {
 
     ICharacterBuilder techniques(List<Technique> techniques);
 
-    ICharacterBuilder buildNewTechnique(String name, String style, String description);
+    ICharacterBuilder buildNewTechnique(int id, String name, String style, String description);
 
     ICharacterBuilder age(int age);
 

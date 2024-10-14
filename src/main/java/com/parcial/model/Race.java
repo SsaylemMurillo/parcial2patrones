@@ -5,6 +5,7 @@ import java.util.List;
 
 public class Race {
 
+    private int id;
     private String name;
     private String skinColor;
     private String hairColor;
@@ -12,7 +13,25 @@ public class Race {
     private String originPlanet;
     private List<Ability> abilities;
 
-    public Race(String hairColor, String originPlanet, String name, String skinColor, String transformation, Ability abilityDefault) {
+    public Race() {
+
+    }
+
+    public Race(int id) {
+        this.id = id;
+    }
+
+    public Race(String name, String skinColor, String hairColor, String transformation, String originPlanet, List<Ability> abilities) {
+        this.name = name;
+        this.skinColor = skinColor;
+        this.hairColor = hairColor;
+        this.transformation = transformation;
+        this.originPlanet = originPlanet;
+        this.abilities = abilities;
+    }
+
+    public Race(int id, String hairColor, String originPlanet, String name, String skinColor, String transformation, Ability abilityDefault) {
+        this.id = id;
         this.hairColor = hairColor;
         this.originPlanet = originPlanet;
         this.name = name;
@@ -22,7 +41,8 @@ public class Race {
         this.abilities.add(abilityDefault);
     }
 
-    public Race(String hairColor, String originPlanet, String name, String skinColor, String transformation, List<Ability> abilities) {
+    public Race(int id, String hairColor, String originPlanet, String name, String skinColor, String transformation, List<Ability> abilities) {
+        this.id = id;
         this.hairColor = hairColor;
         this.originPlanet = originPlanet;
         this.name = name;
@@ -30,6 +50,14 @@ public class Race {
         this.transformation = transformation;
         this.abilities = abilities;
 
+    }
+
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
     }
 
     public String getName() {

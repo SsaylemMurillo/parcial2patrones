@@ -2,11 +2,19 @@ package com.parcial.model;
 
 public class Ability {
 
+    private int id;
     private String name;
     private String type;
     private int power;
     private int cooldownTime;
     private String description;
+
+    public Ability() {
+    }
+
+    public Ability(int id) {
+        this.id = id;
+    }
 
     public Ability(String name, String type, int power, int cooldownTime, String description) {
         this.name = name;
@@ -14,6 +22,23 @@ public class Ability {
         this.power = power;
         this.cooldownTime = cooldownTime;
         this.description = description;
+    }
+
+    public Ability(int id, String name, String type, int power, int cooldownTime, String description) {
+        this.id = id;
+        this.name = name;
+        this.type = type;
+        this.power = power;
+        this.cooldownTime = cooldownTime;
+        this.description = description;
+    }
+
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
     }
 
     public String getName() {
@@ -58,7 +83,7 @@ public class Ability {
 
     @Override
     public String toString() {
-        return "Ability: " + name + " [Type: " + type + ", Power: " + power + ", Cooldown Time: "
+        return "Ability: " + "Id: " + id + ", " + name + " [Type: " + type + ", Power: " + power + ", Cooldown Time: "
                 + cooldownTime + " seconds, Description: " + description + "]";
     }
 }

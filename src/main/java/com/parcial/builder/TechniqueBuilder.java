@@ -4,9 +4,16 @@ import com.parcial.model.Technique;
 
 public class TechniqueBuilder implements ITechniqueBuilder {
 
+    private int id;
     private String name;
     private String style;
     private String description;
+
+    @Override
+    public ITechniqueBuilder id(int id) {
+        this.id = id;
+        return this;
+    }
 
     @Override
     public ITechniqueBuilder name(String name) {
@@ -36,7 +43,7 @@ public class TechniqueBuilder implements ITechniqueBuilder {
 
     @Override
     public Technique build() {
-        return new Technique(name, style, description);
+        return new Technique(id, name, style, description);
     }
 
 }

@@ -4,6 +4,7 @@ import java.util.List;
 
 public class Character implements Cloneable {
 
+    private int id;
     private String name;
     private Race race;
     private int powerLevel;
@@ -12,15 +13,32 @@ public class Character implements Cloneable {
     private double height;
     private double weight;
 
-    public Character(String name, Race race, int powerLevel, List<Technique> techniques,
+    public Character() {
+
+    }
+
+    public Character(int id) {
+        this.id = id;
+    }
+
+    public Character(int id, String name, Race race, int powerLevel, List<Technique> techniques,
             int age, double height, double weight) {
+        this.id = id;
         this.name = name;
-        this.powerLevel = powerLevel;
         this.race = race;
         this.techniques = techniques;
         this.age = age;
         this.height = height;
         this.weight = weight;
+    }
+
+
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
     }
 
     public String getName() {
