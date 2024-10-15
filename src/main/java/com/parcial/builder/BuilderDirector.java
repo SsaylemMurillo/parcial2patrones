@@ -3,7 +3,7 @@ package com.parcial.builder;
 import java.util.ArrayList;
 import java.util.List;
 
-import com.parcial.factory.CharacterFactory;
+import com.parcial.factory.abstractFactory.CharacterFactory;
 import com.parcial.model.Character;
 import com.parcial.model.Technique;
 

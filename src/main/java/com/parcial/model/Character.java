@@ -1,5 +1,6 @@
 package com.parcial.model;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class Character implements Cloneable {
@@ -31,7 +32,6 @@ public class Character implements Cloneable {
         this.height = height;
         this.weight = weight;
     }
-
 
     public int getId() {
         return id;
@@ -103,6 +103,34 @@ public class Character implements Cloneable {
                 + ", Techniques: " + techniques
                 + ", Age: " + age
                 + ", Height: " + height + "m, Weight: " + weight + "kg";
+    }
+
+    @Override
+    @SuppressWarnings("CloneDeclaresCloneNotSupported")
+    public Character clone() {
+        try {
+            // Clonamos este objeto de manera superficial
+            Character clonedCharacter = (Character) super.clone();
+
+            // Clonamos la lista de técnicas para evitar compartir referencias
+            List<Technique> clonedTechniques = new ArrayList<>();
+            for (Technique technique : techniques) {
+                clonedTechniques.add((Technique) technique.clone()); // Asumiendo que Technique también implemente Cloneable
+            }
+            clonedCharacter.setTechniques(clonedTechniques);
+
+            // Clonamos la raza, si la clase Race también es Cloneable
+            if (this.race != null) {
+                clonedCharacter.setRace(this.race.clone()); // Asumiendo que Race también implemente Cloneable
+            }
+
+            // Devolver el clon completo
+            return clonedCharacter;
+
+        } catch (CloneNotSupportedException e) {
+            //e.printStackTrace();
+            return null;
+        }
     }
 
 }

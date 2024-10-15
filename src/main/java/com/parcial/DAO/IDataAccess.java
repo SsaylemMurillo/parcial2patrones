@@ -8,9 +8,9 @@ public interface IDataAccess<T> {
 
     T getById(int id);
 
-    void save(T item);
+    T save(T item);
 
-    void update(T item);  // Nuevo método para actualizar el objeto
+    void update(T item);
 
     void delete(int id);
 }

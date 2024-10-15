@@ -1,6 +1,6 @@
 package com.parcial.model;
 
-public class Technique {
+public class Technique implements Cloneable {
 
     private int id;
     private String name;
@@ -63,5 +63,16 @@ public class Technique {
     @Override
     public String toString() {
         return "Technique: " + name + " [Style: " + style + ", Description: " + description + "]";
+    }
+
+    @Override
+    @SuppressWarnings("CloneDeclaresCloneNotSupported")
+    public Technique clone() {
+        try {
+            return (Technique) super.clone();
+        } catch (CloneNotSupportedException e) {
+            //e.printStackTrace();
+            return null;
+        }
     }
 }

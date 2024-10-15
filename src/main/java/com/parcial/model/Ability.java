@@ -1,6 +1,6 @@
 package com.parcial.model;
 
-public class Ability {
+public class Ability implements Cloneable {
 
     private int id;
     private String name;
@@ -85,5 +85,16 @@ public class Ability {
     public String toString() {
         return "Ability: " + "Id: " + id + ", " + name + " [Type: " + type + ", Power: " + power + ", Cooldown Time: "
                 + cooldownTime + " seconds, Description: " + description + "]";
+    }
+
+    @Override
+    @SuppressWarnings("CloneDeclaresCloneNotSupported")
+    public Ability clone() {
+        try {
+            return (Ability) super.clone();
+        } catch (CloneNotSupportedException e) {
+            //e.printStackTrace();
+            return null;
+        }
     }
 }

@@ -3,7 +3,7 @@ package com.parcial.model;
 import java.util.ArrayList;
 import java.util.List;
 
-public class Race {
+public class Race implements Cloneable {
 
     private int id;
     private String name;
@@ -120,5 +120,26 @@ public class Race {
         sb.append(", Abilities=").append(abilities);
         sb.append('}');
         return sb.toString();
+    }
+
+    @Override
+    @SuppressWarnings("CloneDeclaresCloneNotSupported")
+    public Race clone() {
+        try {
+            Race cloned = (Race) super.clone();
+
+            // Clonamos la lista de habilidades
+            if (this.abilities != null) {
+                cloned.abilities = new ArrayList<>(this.abilities.size());
+                for (Ability ability : this.abilities) {
+                    cloned.abilities.add(ability.clone());  // Asumiendo que Ability también es Cloneable
+                }
+            }
+
+            return cloned;
+        } catch (CloneNotSupportedException e) {
+            //e.printStackTrace();
+            return null;
+        }
     }
 }
